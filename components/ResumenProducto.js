@@ -5,8 +5,8 @@ import useQuiosco from "../hooks/useQuiosco";
 const ResumenProducto = ({ producto }) => {
   const { handleEditarCantidades, handleEliminarProducto } = useQuiosco();
   return (
-    <div className=" shadow p-5 mb-3 flex gap-10 items-center">
-      <div className=" md:w-1/6">
+    <div className=" shadow p-5 mb-3 md:flex md:gap-10 md:items-center">
+      <div className=" md:w-1/3 mb-4 md:mb-0">
         <Image
           width={300}
           height={400}
@@ -14,7 +14,7 @@ const ResumenProducto = ({ producto }) => {
           src={`/assets/img/${producto.imagen}.jpg`}
         />
       </div>
-      <div className="md:w-4/6">
+      <div className="md:w-1/2">
         <p className=" text-3xl font-bold">{producto.nombre}</p>
         <p className=" text-xl font-bold mt-2">Cantidad: {producto.cantidad}</p>
         <p className=" text-xl font-bold text-amber-500 mt-2">
@@ -24,9 +24,9 @@ const ResumenProducto = ({ producto }) => {
           Subtotal: {formatearDinero(producto.precio * producto.cantidad)}
         </p>
       </div>
-      <div>
+      <div className="md:w-1/3">
         <button
-          className=" bg-sky-700 flex gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md w-full text-center"
+          className=" bg-sky-700 flex gap-2 px-5 py-2 text-white rounded-md font-bold uppercase shadow-md w-full text-center mb-2 md:mb-0"
           onClick={() => handleEditarCantidades(producto.id)}
         >
           <svg
